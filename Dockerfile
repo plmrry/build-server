@@ -1,8 +1,8 @@
 # FROM codercom/code-server:latest
+FROM codercom/enterprise-node:latest
 
 
-
-FROM node:latest
+# FROM node:latest
 
 RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
 
