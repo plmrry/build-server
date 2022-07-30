@@ -1,21 +1,21 @@
-FROM codercom/code-server:latest
+# FROM codercom/code-server:latest
 
 
 
-# FROM node:latest
+FROM node:latest
 
-# RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
+RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
 
-# WORKDIR /home/node/app
+WORKDIR /home/node/app
 
-# COPY package*.json ./
+COPY package*.json ./
 
-# USER node
+USER node
 
-# RUN npm install
+RUN npm install
 
-# COPY --chown=node:node . .
+COPY --chown=node:node . .
 
-# EXPOSE 8080
+EXPOSE 8080
 
-# CMD [ "node", "app.js" ]
+CMD [ "node", "app.js" ]
