@@ -1,9 +1,10 @@
 FROM codercom/code-server:latest
 COPY config.yaml .config/code-server/config.yaml
 COPY --from=node:16 /usr/local/bin/node ./node16
+COPY --from=node:16 /usr/local/bin/npm ./npm8
 
 # FROM node:16
-# ENTRYPOINT which node
+# ENTRYPOINT which npm
 
 # RUN echo "hellO"
 
