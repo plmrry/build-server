@@ -1,6 +1,8 @@
 FROM codercom/code-server:latest
 # FROM codercom/enterprise-node:latest
 
+RUN cat ~/.config/code-server/config.yaml
+
 
 # FROM node:latest
 
