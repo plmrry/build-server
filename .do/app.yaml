@@ -1,8 +1,0 @@
-name: build-server
-services:
-- dockerfile_path: Dockerfile
-  github:
-    branch: main
-    deploy_on_push: true
-    repo: plmrry/build-server
-  name: build-server
