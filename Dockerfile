@@ -1,13 +1,16 @@
-# FROM node:16
+FROM codercom/code-server:latest
+COPY config.yaml .config/code-server/config.yaml
+COPY --from=node:16 /usr/local/bin/node ./node16
 
+# FROM node:16
+# ENTRYPOINT which node
 
 # RUN echo "hellO"
 
 
-FROM codercom/code-server:latest
-COPY config.yaml .config/code-server/config.yaml
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-RUN nvm install 16
+
+# RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+# RUN nvm install 16
 # ENTRYPOINT which nvm
 # ENTRYPOINT curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 # RUN bash ~/.nvm/nvm.sh
