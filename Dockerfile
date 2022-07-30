@@ -7,7 +7,8 @@
 FROM codercom/code-server:latest
 COPY config.yaml .config/code-server/config.yaml
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-ENTRYPOINT which nvm
+RUN nvm install 16
+# ENTRYPOINT which nvm
 # ENTRYPOINT curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 # RUN bash ~/.nvm/nvm.sh
 # FROM codercom/enterprise-node:latest
