@@ -1,10 +1,11 @@
 FROM codercom/code-server:latest
+COPY config.yaml .config/code-server/config.yaml
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 # FROM codercom/enterprise-node:latest
 
 # RUN ls -al
 
 # RUN mkdir -p ~/.config/code-server/config.yaml
-COPY config.yaml .config/code-server/config.yaml
 
 # RUN cat ~/.config/code-server/config.yaml
 
