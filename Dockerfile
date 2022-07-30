@@ -1,7 +1,14 @@
 FROM codercom/code-server:latest
 # FROM codercom/enterprise-node:latest
 
-RUN cat ~/.config/code-server/config.yaml
+# RUN ls -al
+
+# RUN mkdir -p ~/.config/code-server/config.yaml
+COPY config.yaml .config/code-server/config.yaml
+
+# RUN cat ~/.config/code-server/config.yaml
+
+# ENTRYPOINT ls -al
 
 
 # FROM node:latest
