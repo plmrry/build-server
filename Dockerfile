@@ -1,14 +1,17 @@
-FROM node:latest as builder
-WORKDIR /app
-COPY . .
-RUN echo "Wow hello"
+FROM node:latest
 
-# # -- Stage 2 -- #
-# # Create the final environment with the compiled binary.
-# FROM alpine
-# # Install any required dependencies.
-# RUN apk --no-cache add ca-certificates
-# WORKDIR /root/
-# # Copy the binary from the builder stage and set it as the default command.
-# COPY --from=builder /app/bin/hello /usr/local/bin/
-# CMD ["hello"]
+RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
+
+WORKDIR /home/node/app
+
+COPY package*.json ./
+
+USER node
+
+RUN npm install
+
+COPY --chown=node:node . .
+
+EXPOSE 8080
+
+CMD [ "node", "app.js" ]
